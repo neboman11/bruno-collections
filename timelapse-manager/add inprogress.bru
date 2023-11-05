@@ -1,0 +1,23 @@
+meta {
+  name: add inprogress
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{URL}}/inprogress/add?id={{INPROGRESS_ID}}
+  body: json
+  auth: none
+}
+
+query {
+  id: {{INPROGRESS_ID}}
+}
+
+body:text {
+  test
+}
+
+script:post-response {
+  bru.setEnvVar("INPROGRESS_ID", res.body);
+}
